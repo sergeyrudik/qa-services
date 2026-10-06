@@ -10,3 +10,5 @@
 
 /* Keep language controls usable on touch screens and when text is enlarged. */
 .lang a{display:inline-flex;align-items:center;justify-content:center;min-width:32px;min-height:44px}.header{flex-wrap:wrap}.header-actions{max-width:100%;flex-wrap:wrap}.header-actions .button{white-space:normal}button:disabled{opacity:.6;cursor:not-allowed}
+
+.language-suggestion{font-size:14px;padding-block:12px;border-bottom:1px solid var(--line)}.language-suggestion a{text-decoration:underline;text-underline-offset:3px}.language-suggestion[hidden]{display:none}
