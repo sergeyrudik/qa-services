@@ -7,3 +7,6 @@
 @media(max-width:380px){.contact{padding:22px}.service{padding:22px}.metrics{grid-template-columns:1fr 1fr}.metrics article:last-child{grid-column:1/-1}.pipeline{grid-template-columns:1fr}.email{font-size:19px}.button{padding-inline:16px}.card-top{font-size:11px}.tag{font-size:10px}}
 .header-actions{display:flex;align-items:center;gap:18px;flex-shrink:0}.lang{display:flex;align-items:center;gap:10px;font:12px/1 var(--mono);letter-spacing:.08em}.lang a{color:var(--muted)}.lang a:hover,.lang a[aria-current="page"]{color:var(--ink)}.lang a[aria-current="page"]{font-weight:600}
 @media(max-width:700px){.header-actions{gap:12px}.lang{gap:8px}}
+
+/* Keep language controls usable on touch screens and when text is enlarged. */
+.lang a{display:inline-flex;align-items:center;justify-content:center;min-width:32px;min-height:44px}.header{flex-wrap:wrap}.header-actions{max-width:100%;flex-wrap:wrap}.header-actions .button{white-space:normal}button:disabled{opacity:.6;cursor:not-allowed}
