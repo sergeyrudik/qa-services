@@ -5,7 +5,7 @@ Static services landing page for https://qa.rudik.dev.
 - Russian: `/`
 - English: `/en/`
 
-Plain HTML, CSS and a small JavaScript enhancement. No build step. The native form submits to FormSubmit, which forwards requests to `rudikqa@gmail.com`; direct email and LinkedIn links remain available. The recipient must activate the first FormSubmit request by email before delivery begins.
+Plain HTML, CSS and a small JavaScript enhancement. No build step. The native form submits to FormSubmit, which forwards requests to `rudikqa@gmail.com`; direct email and LinkedIn links remain available. The FormSubmit endpoint was activated by the recipient on 2026-10-07. The service may show a spam challenge on submission.
 
 Language: the switch in the header saves `localStorage.lang` and a `lang` cookie on `.rudik.dev`, so the choice carries over to https://mentor.rudik.dev. Each URL always shows its own language. When the saved or browser language differs, the page offers a link to the other version.
 
