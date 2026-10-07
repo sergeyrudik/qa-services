@@ -10,5 +10,5 @@ document.addEventListener('click', function (event) {
   const href = link.getAttribute('href') || '';
   if (href === '#contact') window.gtag('event', 'contact_cta_click');
   if (href.startsWith('mailto:')) window.gtag('event', 'contact_email_click');
-  if (link.hostname === 'www.linkedin.com') window.gtag('event', 'contact_linkedin_click');
+  if (['linkedin.com', 'www.linkedin.com'].includes(link.hostname)) window.gtag('event', 'contact_linkedin_click');
 });
