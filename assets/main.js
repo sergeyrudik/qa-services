@@ -41,7 +41,5 @@ form.addEventListener('submit', event => {
     task.setCustomValidity(isEn ? 'Please describe your goal or task.' : 'Пожалуйста, опишите цель или задачу.');
     task.reportValidity();
     task.focus();
-  } else {
-    try { localStorage.setItem('pending-lead-' + (isEn ? 'en' : 'ru'), String(Date.now())); } catch (_) {}
   }
 });
