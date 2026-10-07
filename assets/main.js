@@ -1,5 +1,6 @@
 // Every language URL stays crawlable; saved preferences suggest a language without redirecting.
 const validLanguage = value => value === 'ru' || value === 'en';
+const isEn = document.documentElement.lang === 'en';
 function rememberLanguage(language) {
   try { localStorage.setItem('lang', language); } catch (_) {}
   try { document.cookie = 'lang=' + language + ';path=/;max-age=31536000;SameSite=Lax' + (location.protocol === 'https:' ? ';Secure' : '') + (/(^|\.)rudik\.dev$/.test(location.hostname) ? ';domain=rudik.dev' : ''); } catch (_) {}
@@ -13,6 +14,11 @@ function prepareLanguageLink(link) {
   });
 }
 document.querySelectorAll('.lang a').forEach(prepareLanguageLink);
+document.addEventListener('click', event => {
+  const link = event.target.closest('a[href]');
+  if (!link || validLanguage(link.hreflang)) return;
+  if (/(^|\.)rudik\.dev$/.test(link.hostname)) rememberLanguage(document.documentElement.lang);
+});
 let preferred = null;
 try { const cookie = /(?:^|;\s*)lang=([^;]+)/.exec(document.cookie); if (cookie && validLanguage(cookie[1])) preferred = cookie[1]; } catch (_) {}
 if (!preferred) { try { const saved = localStorage.getItem('lang'); if (validLanguage(saved)) preferred = saved; } catch (_) {} }
