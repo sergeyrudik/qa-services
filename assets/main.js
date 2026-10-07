@@ -57,6 +57,7 @@ form.addEventListener('submit', event => {
     return;
   }
   const body = `${mail.greeting}\n\n${mail.interested} ${selection.value}\n\n${message}`;
+  if (window.gtag) window.gtag('event', 'email_draft_created');
   window.location.href = `mailto:rudikqa@gmail.com?subject=${encodeURIComponent(mail.subject + selection.value)}&body=${encodeURIComponent(body)}`;
   document.querySelector('#form-status').textContent = mail.status;
 });
