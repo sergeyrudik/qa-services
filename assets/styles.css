@@ -15,3 +15,5 @@
 
 /* Case studies and lead form */
 .case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.case-card{border:1px solid var(--line);border-radius:16px;padding:28px;background:var(--surface,#fff)}.case-card h3{margin:0 0 12px}.case-card p{margin:0;line-height:1.65}.contact input[type=email]{width:100%}@media(max-width:700px){.case-grid{grid-template-columns:1fr}}
+
+.site-paths{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-block:14px;border-bottom:1px solid var(--line);font-size:13px;color:var(--muted)}.site-paths a,.site-paths span{display:inline-flex;align-items:center;min-height:36px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;line-height:1.25}.site-paths a:hover{border-color:var(--green);color:var(--green)}.site-paths span[aria-current="page"]{background:#e8eedd;color:var(--ink);border-color:#d2dfbc;font-weight:600}@media(max-width:700px){.site-paths{gap:6px;font-size:12px}.site-paths a,.site-paths span{padding:6px 9px;min-height:40px}}
