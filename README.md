@@ -5,9 +5,9 @@ Static services landing page for https://qa.rudik.dev.
 - Russian: `/`
 - English: `/en/`
 
-Plain HTML, CSS and a small JavaScript email-brief helper. No dependencies or build step. The form opens a draft in the visitor's email client; it does not submit or store data on a server. Direct email and LinkedIn links work without JavaScript.
+Plain HTML, CSS and a small JavaScript enhancement. No build step. The native form submits to FormSubmit, which forwards requests to `rudikqa@gmail.com`; direct email and LinkedIn links remain available. The recipient must activate the first FormSubmit request by email before delivery begins.
 
-Language: the switch in the header saves `localStorage.lang` and a `lang` cookie on `.rudik.dev`, so the choice carries over to https://mentor.rudik.dev. The inline script in `<head>` redirects to `/en/` when the saved language is English or the browser language is English and no choice was made yet.
+Language: the switch in the header saves `localStorage.lang` and a `lang` cookie on `.rudik.dev`, so the choice carries over to https://mentor.rudik.dev. Each URL always shows its own language. When the saved or browser language differs, the page offers a link to the other version.
 
 Preview: `python3 -m http.server 4174`
 
@@ -17,4 +17,4 @@ GitHub Pages: deploy from `main`, root directory. DNS: CNAME `qa` → `sergeyrud
 
 `robots.txt` allows crawling and advertises `sitemap.xml`. The sitemap lists both language URLs and their alternates. Keep the sitemap and reciprocal hreflang links in sync when adding pages. Every URL keeps its language, regardless of browser or saved preference; the shared language preference only controls a suggestion. Structured data describes the real person and services; no ratings or prices are invented.
 
-Submit `https://qa.rudik.dev/sitemap.xml` through your verified Google Search Console and Yandex Webmaster properties. Verification and submission must be completed in those accounts. No tracking scripts are added by this SEO change.
+The sitemap has been submitted through the verified Google Search Console and Yandex Webmaster properties. GA4 uses the shared `G-B4XR81HWTY` stream; `assets/analytics.js` records fixed contact actions and the thank-you page records `generate_lead` after form submission. Form text and email addresses are never sent to GA4. Use the built-in `Host name` dimension to distinguish QA, Mentor and portfolio traffic.

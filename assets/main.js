@@ -1,15 +1,3 @@
-const isEn = document.documentElement.lang === 'en';
-const mail = isEn ? {
-  greeting: 'Hello Sergei,', interested: 'I am interested in:',
-  subject: 'QA services: ',
-  empty: 'Please briefly describe your goal or task.',
-  status: 'A draft email is ready. If your email app does not open, write to rudikqa@gmail.com. Your text is still in the form.'
-} : {
-  greeting: 'Здравствуйте, Сергей!', interested: 'Интересует:',
-  subject: 'QA: ',
-  empty: 'Пожалуйста, кратко опишите цель или задачу.',
-  status: 'Письмо подготовлено. Если почта не открылась, напишите на rudikqa@gmail.com. Ваш текст остался в форме.'
-};
 // Every language URL stays crawlable; saved preferences suggest a language without redirecting.
 const validLanguage = value => value === 'ru' || value === 'en';
 function rememberLanguage(language) {
@@ -48,18 +36,12 @@ document.querySelectorAll('[data-service]').forEach(link => {
 });
 task.addEventListener('input', () => { task.setCustomValidity(''); });
 form.addEventListener('submit', event => {
-  event.preventDefault();
-  const message = task.value.trim();
-  if (!message) {
-    task.setCustomValidity(mail.empty);
+  if (!task.value.trim()) {
+    event.preventDefault();
+    task.setCustomValidity(isEn ? 'Please describe your goal or task.' : 'Пожалуйста, опишите цель или задачу.');
     task.reportValidity();
     task.focus();
-    return;
+  } else {
+    try { sessionStorage.setItem('pending-lead-' + (isEn ? 'en' : 'ru'), String(Date.now())); } catch (_) {}
   }
-  const body = `${mail.greeting}\n\n${mail.interested} ${selection.value}\n\n${message}`;
-  if (window.gtag) window.gtag('event', 'email_draft_created');
-  window.location.href = `mailto:rudikqa@gmail.com?subject=${encodeURIComponent(mail.subject + selection.value)}&body=${encodeURIComponent(body)}`;
-  document.querySelector('#form-status').textContent = mail.status;
 });
-// Keep the submit action disabled when JavaScript is unavailable; direct contact links still work.
-form.querySelector('button[type="submit"]').disabled = false;
