@@ -42,6 +42,6 @@ form.addEventListener('submit', event => {
     task.reportValidity();
     task.focus();
   } else {
-    try { sessionStorage.setItem('pending-lead-' + (isEn ? 'en' : 'ru'), String(Date.now())); } catch (_) {}
+    try { localStorage.setItem('pending-lead-' + (isEn ? 'en' : 'ru'), String(Date.now())); } catch (_) {}
   }
 });
